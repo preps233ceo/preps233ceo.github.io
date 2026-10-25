@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buariwa privacy policy</title><meta name="description" content="How Buariwa handles personal data and Google user data.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><div class="wrap"><nav>
+<a class="brand" href="./"><span class="mark"><i style="left:8px;top:6px;bottom:6px;width:4px;background:#FFB703"></i><i style="left:15px;top:10px;height:4px;width:13px;background:#2F4BFF"></i><i style="left:15px;top:16px;height:4px;width:13px;background:#2F4BFF"></i><i style="left:15px;top:22px;height:4px;width:8px;background:#2F4BFF"></i></span>Buariwa</a>
+<span class="sp"></span><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></div></header>
+<main><div class="wrap"><div class="doc">
+<h1>Privacy policy</h1>
+<p class="meta">Last updated: 25 October 2026</p>
+
+<p>This policy explains what information the Buariwa apps (for Android, Windows and the web) and the Buariwa exam server handle, why, and the choices schools and users have. Buariwa is made by Preps233, Accra, Ghana (“we”). Contact us at <a href="mailto:johnshiburah@gmail.com">johnshiburah@gmail.com</a>.</p>
+
+<div class="note"><b>In short:</b> Buariwa runs on a server owned and operated by each school. Students' names, scripts and marks are stored on that school's server and in that school's own Google Drive, not with us. We do not sell data, show ads, or use anyone's data to train AI models.</div>
+
+<h2>1. Who is responsible for the data</h2>
+<p>Each school or exam centre that uses Buariwa runs its own Buariwa server (usually a PC on the school's premises) and decides who has an account and which exams are set. The school is the controller of the personal data on its server. We provide the software and, where described below, a small directory service. If you are a student, parent or teacher with a question about your data, please contact your school first; you can also contact us.</p>
+
+<h2>2. Information handled on the school's Buariwa server</h2>
+<table>
+<tr><th>Information</th><th>Why it is used</th></tr>
+<tr><td>Account details: name, login ID, class, role (student, teacher, administrator), a scrambled (hashed) PIN</td><td>To sign people in and show each person only what they are allowed to see</td></tr>
+<tr><td>Exam content: questions, images, videos, formula sheets</td><td>To deliver papers to students when the examiner releases them</td></tr>
+<tr><td>Students' answers: handwriting, typed text, selected options, rough work</td><td>To record the student's script for marking</td></tr>
+<tr><td>Marks, comments and the examiner's red-pen annotations</td><td>To mark scripts and, when released, show students their marked script</td></tr>
+<tr><td>Exam-time activity: when a paper was started and submitted, leaving the exam app, requests to leave, device type</td><td>For fair invigilation</td></tr>
+<tr><td>An audit log of important actions (sign-ins, releases, uploads)</td><td>Security and accountability</td></tr>
+</table>
+<p>This information stays on the school's server and in the school's chosen Google Drive. It is not sent to us.</p>
+
+<h2>3. Google user data</h2>
+<p>A school administrator, or an examiner for their own exams, may choose to connect a Google account so Buariwa can save copies of scripts and question papers to Google Drive. Sign-in happens with Google; Buariwa never sees the Google password.</p>
+<h3>What Buariwa accesses</h3>
+<ul>
+<li><b>Google Drive, files created by Buariwa only</b> (<code>drive.file</code>): Buariwa creates a folder (“Buariwa School”, or “Buariwa — <i>teacher's name</i>”) and saves inside it the question papers and students' scripts (PDF and data files) of the school's exams. With this permission Buariwa cannot see or open any other files in the account.</li>
+<li><b>The account's email address</b> (<code>userinfo.email</code>): shown in Buariwa so the school can see which account is connected.</li>
+<li><b>Optional, only if the administrator chooses to save into an existing folder or Shared Drive:</b> full Google Drive access (<code>drive</code>), used solely to check that folder and to save Buariwa's files into it.</li>
+</ul>
+<h3>How it is used, stored and shared</h3>
+<ul>
+<li>Google user data is used only to provide the feature the user turned on: saving the school's exam files to their Drive and showing which account is connected.</li>
+<li>The permission Google issues (a refresh token) is stored encrypted on the school's own Buariwa server. It is not sent to us or to anyone else.</li>
+<li>We do not sell Google user data, use it for advertising, or use it to develop, improve or train artificial-intelligence or machine-learning models.</li>
+<li>Google user data is not transferred to third parties, except as needed to provide the feature (for example, to Google itself), for security, or to comply with the law.</li>
+</ul>
+<p><b>Buariwa's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</b></p>
+<h3>Disconnecting</h3>
+<p>An administrator or examiner can press <b>Disconnect</b> in Buariwa at any time, which deletes the stored permission from the school's server. You can also remove Buariwa's access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. Files already saved to Drive stay in your Drive until you delete them.</p>
+
+<h2>4. Teachers' devices</h2>
+<p>If the school allows it, a teacher's Buariwa app keeps a copy of that teacher's own questions, and any work they prepare away from school, on their device so they can work at home. This copy is encrypted on the device, is never sent over the internet by Buariwa, and is uploaded only to the school's server. The school can switch this off, which removes the copies the next time the device connects.</p>
+
+<h2>5. Access from home and the Buariwa directory</h2>
+<p>If a school switches on access from home, its server opens an encrypted connection through Cloudflare so students can reach it with a school code. We run a small directory that stores only each school's code, school name and the current address of its server, so the app can find it. The directory does not store any information about students, staff, exams or marks. Traffic between the app and the school's server is encrypted (HTTPS) and passes through Cloudflare's network; see <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's privacy policy</a>.</p>
+
+<h2>6. Children</h2>
+<p>Buariwa is used by schools, so many students are under 18. Student accounts are created and managed by the school, which is responsible for any consent required under local law. We do not knowingly collect information directly from children, and students cannot create accounts themselves.</p>
+
+<h2>7. How long data is kept</h2>
+<p>Each school decides how long exams, scripts and accounts are kept on its server and in its Drive, and can delete them. The directory entry for a school is removed when the school switches access from home off, and expires automatically if the school's server stops checking in.</p>
+
+<h2>8. Security</h2>
+<p>PINs are stored only in hashed form; accounts lock after repeated wrong PINs; Google permissions are stored encrypted; data on teachers' and students' devices is encrypted; each user sees only their own data or the exams they are responsible for; and the question bank, staff sign-in and administration are never reachable over the internet.</p>
+
+<h2>9. Your rights</h2>
+<p>Depending on where you live (for example under Ghana's Data Protection Act, 2012 (Act 843)), you may have the right to ask for access to, correction of or deletion of your personal data. Because the data is held by your school, please send such requests to your school; we will help schools respond.</p>
+
+<h2>10. Changes</h2>
+<p>We may update this policy. The date at the top shows the latest version; significant changes will be announced in the app or to schools.</p>
+
+<h2>11. Contact</h2>
+<p>Preps233, Accra, Ghana · <a href="mailto:johnshiburah@gmail.com">johnshiburah@gmail.com</a></p>
+</div></div></main><footer><div class="wrap"><a href="./">Home</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a>
+<p>Buariwa is made by Preps233 in Accra, Ghana. Contact: <a href="mailto:johnshiburah@gmail.com">johnshiburah@gmail.com</a></p></div></footer></body></html>
