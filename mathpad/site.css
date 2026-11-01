@@ -14,7 +14,7 @@
 
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--text); font: 17px/1.6 var(--body); }
-a { color: var(--accent); text-underline-offset: 3px; }
+a { color: var(--accent); text-underline-offset: 3px; overflow-wrap: anywhere; }
 a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 img { max-width: 100%; height: auto; display: block; }
 .wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
@@ -87,7 +87,7 @@ table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: .95
 th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
 th { color: var(--ink); background: var(--card); }
 tr:last-child td { border-bottom: 0; }
-code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .9em; background: var(--card); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; }
+code { overflow-wrap: anywhere; font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .9em; background: var(--card); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; }
 .email { user-select: all; font-weight: 700; color: var(--ink); }
 
 footer { border-top: 1px solid var(--line); }
