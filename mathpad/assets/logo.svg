@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2554C7"/>
+      <stop offset="1" stop-color="#14306F"/>
+    </linearGradient>
+    <pattern id="grid" width="42.67" height="42.67" patternUnits="userSpaceOnUse">
+      <path d="M42.67 0H0V42.67" fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#g)"/>
+  <rect width="512" height="512" rx="112" fill="url(#grid)"/>
+  <!-- handwritten root sign: lead-in, tick down, long stroke up, bar -->
+  <path d="M86 300 Q112 282 136 292 Q168 352 196 402 Q236 236 282 132 Q350 128 402 132"
+        fill="none" stroke="#FFFFFF" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- x under the bar -->
+  <path d="M292 226 L384 352 M384 226 L292 352" fill="none" stroke="#FFFFFF" stroke-width="34" stroke-linecap="round"/>
+  <!-- ink drop where the pen lifts -->
+  <circle cx="430" cy="132" r="24" fill="#FF9A3D"/>
+</svg>
