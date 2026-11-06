@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Register · MathPad Saturday Sessions</title>
+<meta name="description" content="Register for MathPad's interactive Saturday maths sessions on Google Meet. GH¢200 per month, pay with Mobile Money.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --navy:#0B1224; --navy2:#121C36; --line:#22305A; --text:#F2F5FF; --soft:#B8C3E0; --muted:#8C98BB;
+  --accent:#FF8A2B; --accent-ink:#0B1224; --ok:#3DDC97; --bad:#FF6B5B;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--navy);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.5}
+body{background-image:radial-gradient(#1E2A4A 1.4px,transparent 1.4px);background-size:32px 32px}
+a{color:var(--accent)}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:36px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+.logo{width:44px;height:44px;border-radius:12px;background:var(--accent);display:grid;place-items:center}
+.brand b{font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:-.4px}
+.live{display:flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid #2A3A63;border-radius:999px;font-size:13px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:#C9D3EE}
+.live i{width:8px;height:8px;border-radius:50%;background:#FF4D3D}
+.grid{display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start}
+.intro{flex:1 1 380px;min-width:0}
+.kicker{color:var(--accent);font-weight:600;letter-spacing:2.5px;text-transform:uppercase;font-size:14px}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(40px,6vw,64px);line-height:1;letter-spacing:-2px;margin:12px 0 16px}
+.lead{color:var(--soft);font-size:18px;margin:0 0 24px;max-width:520px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:24px}
+.fact{background:var(--navy2);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px}
+.fact small{display:block;color:var(--muted);font-size:12px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase}
+.fact strong{font-family:'Space Grotesk',sans-serif;font-size:20px}
+.fact span{display:block;color:var(--muted);font-size:13px}
+.points{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.points li{display:flex;gap:12px;align-items:flex-start;color:var(--soft)}
+.points li b{color:var(--text)}
+.points svg{flex:none;margin-top:2px}
+.card{flex:1 1 440px;min-width:0;background:#F7F3EA;color:#1A2347;border-radius:24px;padding:28px}
+.card h2{font-family:'Space Grotesk',sans-serif;font-size:28px;margin:0 0 4px;letter-spacing:-.6px}
+.card .sub{color:#5B6180;margin:0 0 20px;font-size:15px}
+.row{display:flex;flex-wrap:wrap;gap:14px}
+.field{flex:1 1 200px;min-width:0;display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+label{font-size:14px;font-weight:600;color:#2A3156}
+label .opt{font-weight:400;color:#6B7090}
+input,select,textarea{font:inherit;font-size:16px;color:#1A2347;background:#fff;border:1.5px solid #D9D2C2;border-radius:12px;padding:12px 14px;min-height:48px;width:100%}
+textarea{min-height:84px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:3px solid rgba(255,138,43,.35);border-color:var(--accent)}
+.hint{font-size:13px;color:#6B7090}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#3A4166;margin:4px 0 18px}
+.check input{width:22px;height:22px;min-height:0;margin-top:1px;accent-color:var(--accent)}
+.total{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1.5px dashed #D9D2C2;border-radius:14px;padding:14px 16px;margin-bottom:16px}
+.total strong{font-family:'Space Grotesk',sans-serif;font-size:26px}
+button{font:inherit;font-weight:700;font-size:17px;border:0;border-radius:14px;min-height:54px;padding:0 20px;width:100%;cursor:pointer;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;gap:10px}
+button:hover{background:#18244A}
+button[disabled]{opacity:.6;cursor:progress}
+.pay-note{display:flex;gap:8px;align-items:center;justify-content:center;font-size:13px;color:#5B6180;margin-top:12px;text-align:center}
+.msg{border-radius:12px;padding:12px 14px;font-size:14px;margin-bottom:14px;display:none}
+.msg.show{display:block}
+.msg.err{background:#FFE7E3;color:#8A1F12}
+.msg.info{background:#E8EEFF;color:#1C2E6B}
+.done{display:none;text-align:center;padding:10px 4px}
+.done.show{display:block}
+.done .tick{width:72px;height:72px;border-radius:50%;background:#DDF7EA;display:grid;place-items:center;margin:0 auto 14px}
+.done h2{margin-bottom:8px}
+.done p{color:#4A5075;margin:0 0 14px}
+.done .ref{font-family:ui-monospace,Consolas,monospace;background:#fff;border-radius:10px;padding:8px 12px;display:inline-block;margin-bottom:18px}
+.links{display:grid;gap:10px}
+.links a{display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border-radius:14px;text-decoration:none;font-weight:700}
+.links .meet{background:var(--navy);color:#fff}
+.links .wa{background:#fff;color:#1A2347;border:1.5px solid #D9D2C2}
+footer{margin-top:40px;color:var(--muted);font-size:13px;text-align:center}
+@media (max-width:520px){.card{padding:22px 18px}.facts{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="../">
+      <span class="logo"><svg role="img" aria-label="MathPad" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B1224" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18V7l4 6 4-6v11"/><path d="M15 12h5M17.5 9.5v5"/></svg></span>
+      <b>MathPad</b>
+    </a>
+    <span class="live"><i></i>Live online</span>
+  </header>
+
+  <div class="grid">
+    <section class="intro">
+      <div class="kicker">Interactive maths sessions</div>
+      <h1>Understand it.<br>Practise it.</h1>
+      <p class="lead">Real understanding comes from practice. Every Saturday we solve questions together on MathPad — you try each one, we work through it step by step, and you leave knowing why it works.</p>
+      <div class="facts">
+        <div class="fact"><small>When</small><strong>Saturdays</strong><span>10am – 1pm (time can be adjusted)</span></div>
+        <div class="fact"><small>Where</small><strong>Google Meet</strong><span>link sent after you pay</span></div>
+        <div class="fact"><small>Fee</small><strong>GH¢<span id="feeA" style="display:inline;color:inherit;font-size:inherit">200</span></strong><span>per month</span></div>
+        <div class="fact"><small>Pay with</small><strong>MoMo</strong><span>MTN, Telecel, AirtelTigo or card</span></div>
+      </div>
+      <ul class="points">
+        <li><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF8A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg><span><b>Practise every question</b> — you try first, then we solve it step by step.</span></li>
+        <li><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF8A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span><b>Interactive learning</b> — ask, answer and solve together, live.</span></li>
+        <li><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF8A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.5 9.5l4 2.5-4 2.5z"/></svg><span><b>Replay it later</b> — the session recording is shared with you.</span></li>
+      </ul>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <form id="form" novalidate>
+        <h2>Register</h2>
+        <p class="sub">Fill in your details, then pay with Mobile Money to confirm your place.</p>
+        <div id="msg" class="msg" role="alert"></div>
+
+        <div class="field">
+          <label for="name">Student's full name</label>
+          <input id="name" name="name" autocomplete="name" required>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="phone">WhatsApp number</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="024 123 4567" required>
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="opt">(student or parent)</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="level">Class</label>
+            <select id="level" name="level" required>
+              <option value="">Choose…</option>
+              <option>SHS 1</option><option>SHS 2</option><option>SHS 3</option>
+              <option>WASSCE (private / resit)</option><option>University</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="course">Maths</label>
+            <select id="course" name="course" required>
+              <option value="">Choose…</option>
+              <option>Core Mathematics</option><option>Elective Mathematics</option><option>Both</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="school">School <span class="opt">(optional)</span></label>
+            <input id="school" name="school" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="month">Month</label>
+            <select id="month" name="month" required></select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="topics">Topics you want help with <span class="opt">(optional)</span></label>
+          <textarea id="topics" name="topics" placeholder="e.g. differentiation, surds, logarithms"></textarea>
+        </div>
+        <div class="field">
+          <label for="parent">Parent / guardian phone <span class="opt">(optional)</span></label>
+          <input id="parent" name="parent" type="tel" inputmode="tel">
+        </div>
+        <label class="check"><input id="agree" type="checkbox" required> <span>I understand sessions run on Saturdays (10am – 1pm, time can be adjusted) on Google Meet, and the fee covers one month.</span></label>
+
+        <div class="total"><span>Total for one month</span><strong>GH¢<span id="feeB">200</span>.00</strong></div>
+        <button id="pay" type="submit">
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18h3"/></svg>
+          <span id="payLabel">Pay GH¢200 with Mobile Money</span>
+        </button>
+        <div class="pay-note"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Secure payment by Paystack. You approve it on your phone.</div>
+      </form>
+
+      <div id="done" class="done">
+        <div class="tick"><svg aria-hidden="true" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#1F9D63" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+        <h2>You're registered!</h2>
+        <p id="doneText">Payment received. See you on Saturday.</p>
+        <div class="ref" id="doneRef"></div>
+        <div class="links">
+          <a id="meetLink" class="meet" href="#" target="_blank" rel="noopener"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.5"/><path d="M15.5 10.5 21.5 7v10l-6-3.5z"/></svg>Open the Google Meet link</a>
+          <a id="waLink" class="wa" href="#" target="_blank" rel="noopener">Join the class WhatsApp group</a>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer>MathPad · Saturday maths sessions · Questions? WhatsApp <span id="contact"></span></footer>
+</div>
+
+<script src="https://js.paystack.co/v2/inline.js"></script>
+<script>
+/* ---------------------------------------------------------------
+   SETTINGS — fill these in (see SETUP.md)
+   --------------------------------------------------------------- */
+const CONFIG = {
+  // Your Google Apps Script web app URL (ends in /exec)
+  apiUrl: 'https://script.google.com/macros/s/AKfycby6NJ2spwK0veFPenzRGaH6j6jRqGl8sW7tOk0jO3eDnTohQqfq1E7t5fpJAJpVYJid/exec',
+  // Your Paystack PUBLIC key (pk_live_… or pk_test_… while testing)
+  paystackPublicKey: 'pk_test_PASTE_YOUR_PUBLIC_KEY',
+  // Monthly fee in cedis (the server checks this too)
+  feeCedis: 200,
+  // Shown in the footer
+  contact: '@preps233',
+};
+/* --------------------------------------------------------------- */
+
+const $ = (id) => document.getElementById(id);
+const form = $('form'), msg = $('msg'), payBtn = $('pay');
+$('feeA').textContent = CONFIG.feeCedis;
+$('feeB').textContent = CONFIG.feeCedis;
+$('payLabel').textContent = `Pay GH¢${CONFIG.feeCedis} with Mobile Money`;
+$('contact').textContent = CONFIG.contact;
+
+// this month and the next two
+(function months() {
+  const sel = $('month');
+  const now = new Date();
+  for (let i = 0; i < 3; i++) {
+    const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+    const label = d.toLocaleString('en-GB', { month: 'long', year: 'numeric' });
+    const o = new Option(label, label);
+    sel.add(o);
+  }
+})();
+
+function show(text, kind = 'err') {
+  msg.textContent = text;
+  msg.className = `msg show ${kind}`;
+}
+function clear() { msg.className = 'msg'; }
+function busy(on, label) {
+  payBtn.disabled = on;
+  $('payLabel').textContent = on ? label : `Pay GH¢${CONFIG.feeCedis} with Mobile Money`;
+}
+
+// Apps Script takes text/plain posts (no CORS preflight)
+async function api(body) {
+  const r = await fetch(CONFIG.apiUrl, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(body) });
+  const j = await r.json();
+  if (!j.ok) throw new Error(j.error || 'Something went wrong. Please try again.');
+  return j;
+}
+
+function normPhone(p) {
+  const d = p.replace(/\D/g, '');
+  if (d.startsWith('233') && d.length === 12) return '0' + d.slice(3);
+  return d;
+}
+
+function valid() {
+  for (const el of form.querySelectorAll('[required]')) {
+    if (el.type === 'checkbox' ? !el.checked : !el.value.trim()) {
+      el.focus();
+      return el.type === 'checkbox' ? 'Please tick the box to confirm.' : `Please fill in “${el.labels[0].textContent.replace(/\(.*\)/, '').trim()}”.`;
+    }
+  }
+  if (!/^0\d{9}$/.test(normPhone($('phone').value))) return 'Please enter a 10-digit Ghana phone number, e.g. 024 123 4567.';
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test($('email').value.trim())) return 'Please enter a valid email address.';
+  return null;
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  clear();
+  const problem = valid();
+  if (problem) return show(problem);
+  if (CONFIG.apiUrl.startsWith('PASTE') || CONFIG.paystackPublicKey.includes('PASTE')) {
+    return show('Registration is not switched on yet (the page settings are missing). Please contact us on WhatsApp.');
+  }
+  const data = Object.fromEntries(new FormData(form).entries());
+  data.phone = normPhone(data.phone);
+  data.email = data.email.trim();
+  busy(true, 'Saving your details…');
+  let reg;
+  try {
+    reg = await api({ action: 'register', ...data });
+  } catch (err) {
+    busy(false);
+    return show(err.message);
+  }
+  busy(true, 'Waiting for payment…');
+  const paystack = new PaystackPop();
+  paystack.newTransaction({
+    key: CONFIG.paystackPublicKey,
+    email: data.email,
+    amount: CONFIG.feeCedis * 100, // pesewas
+    currency: 'GHS',
+    reference: reg.reference,
+    channels: ['mobile_money', 'card'],
+    metadata: { custom_fields: [
+      { display_name: 'Student', variable_name: 'student', value: data.name },
+      { display_name: 'Month', variable_name: 'month', value: data.month },
+    ] },
+    onSuccess: async (tx) => {
+      busy(true, 'Confirming payment…');
+      try {
+        const v = await api({ action: 'verify', reference: tx.reference });
+        done(v);
+      } catch (err) {
+        busy(false);
+        show(`We received your payment but could not confirm it yet (${err.message}). Keep this reference and message us: ${tx.reference}`, 'info');
+      }
+    },
+    onCancel: () => {
+      busy(false);
+      show('Payment was not completed. Your details are saved — press the button to try again.', 'info');
+    },
+    onError: (err) => {
+      busy(false);
+      show(err && err.message ? err.message : 'The payment window could not open. Please try again.');
+    },
+  });
+});
+
+function done(v) {
+  form.style.display = 'none';
+  $('done').classList.add('show');
+  $('doneText').textContent = `Thank you, ${v.name.split(' ')[0]}! Your place for ${v.month} is confirmed. We have also emailed you the details.`;
+  $('doneRef').textContent = `Reference: ${v.reference}`;
+  if (v.meetLink) $('meetLink').href = v.meetLink; else $('meetLink').style.display = 'none';
+  if (v.whatsappLink) $('waLink').href = v.whatsappLink; else $('waLink').style.display = 'none';
+  $('done').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+</body>
+</html>
