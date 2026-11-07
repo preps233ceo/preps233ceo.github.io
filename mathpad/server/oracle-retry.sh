@@ -37,8 +37,10 @@ say "Region ${OCI_REGION:-?} · $AD · ${OCPUS} OCPU / ${MEM} GB"
 EXIST="$(oci compute instance list -c "$TEN" --display-name "$NAME" --query "data[?\"lifecycle-state\"!='TERMINATED'] | [0].id" --raw-output 2>/dev/null)"
 
 # ---------------------------------------------------------------- ssh key (lives in Cloud Shell)
-if [ ! -f "$KEY" ]; then
-  mkdir -p "$HOME/.ssh"; ssh-keygen -t ed25519 -N "" -q -f "$KEY"
+if [ ! -f "$KEY.pub" ]; then
+  mkdir -p "$HOME/.ssh"; rm -f "$KEY"
+  # RSA: Cloud Shell runs in FIPS mode, which doesn't allow ed25519
+  ssh-keygen -t rsa -b 4096 -N "" -q -f "$KEY" || { echo "Couldn't make an SSH key."; exit 1; }
   say "Made an SSH key in Cloud Shell ($KEY)"
 fi
 
