@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Register · MathPad Saturday Sessions</title>
-<meta name="description" content="Register for MathPad's interactive Saturday maths sessions on Google Meet. GH¢200 per month, pay with Mobile Money.">
+<meta name="description" content="Register for MathPad's interactive Saturday maths sessions on Google Meet. GH¢200 per month, pay with MTN MoMo, other Mobile Money or card.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
 <style>
@@ -56,6 +56,25 @@ button{font:inherit;font-weight:700;font-size:17px;border:0;border-radius:14px;m
 button:hover{background:#18244A}
 button[disabled]{opacity:.6;cursor:progress}
 .pay-note{display:flex;gap:8px;align-items:center;justify-content:center;font-size:13px;color:#5B6180;margin-top:12px;text-align:center}
+.methods{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.method{position:relative;display:flex;flex-direction:column;gap:2px;border:1.5px solid #D9D2C2;background:#fff;border-radius:14px;padding:12px 14px;cursor:pointer;font-size:14px;color:#3A4166}
+.method input{position:absolute;opacity:0;pointer-events:none}
+.method b{font-size:15px;color:#1A2347;display:flex;align-items:center;gap:8px}
+.method .dot{width:14px;height:14px;border-radius:50%;background:#FFCC00;border:2px solid #1A2347;flex:none}
+.method.ps .dot{background:#0BA4DB}
+.method:has(input:checked){border-color:var(--accent);outline:3px solid rgba(255,138,43,.25)}
+.method:has(input:focus-visible){outline:3px solid rgba(255,138,43,.6)}
+.wait{display:none;text-align:center;padding:18px 6px}
+.wait.show{display:block}
+.wait .phone{width:76px;height:76px;border-radius:50%;background:#FFF4CC;display:grid;place-items:center;margin:0 auto 14px;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.06)}}
+@media (prefers-reduced-motion:reduce){.wait .phone{animation:none}}
+.wait h2{margin-bottom:6px}
+.wait p{color:#4A5075;margin:0 0 10px}
+.wait ol{text-align:left;color:#3A4166;margin:0 auto 16px;max-width:340px;padding-left:22px}
+.wait .small{font-size:13px;color:#6B7090}
+.linkbtn{background:none;color:#1A2347;text-decoration:underline;min-height:44px;font-weight:600;font-size:15px}
+.linkbtn:hover{background:none}
 .msg{border-radius:12px;padding:12px 14px;font-size:14px;margin-bottom:14px;display:none}
 .msg.show{display:block}
 .msg.err{background:#FFE7E3;color:#8A1F12}
@@ -159,13 +178,40 @@ footer{margin-top:40px;color:var(--muted);font-size:13px;text-align:center}
         </div>
         <label class="check"><input id="agree" type="checkbox" required> <span>I understand sessions run on Saturdays (10am – 1pm, time can be adjusted) on Google Meet, and the fee covers one month.</span></label>
 
+        <div class="field" id="methodField" role="radiogroup" aria-labelledby="payHow" style="margin-bottom:0;display:none">
+          <label id="payHow">Pay with</label>
+          <div class="methods">
+            <label class="method"><input type="radio" name="method" value="mtn"><b><span class="dot"></span>MTN MoMo</b><span>Approve on your phone</span></label>
+            <label class="method ps"><input type="radio" name="method" value="paystack" checked><b><span class="dot"></span>Other</b><span>Telecel, AirtelTigo or card</span></label>
+          </div>
+        </div>
+        <div class="field" id="momoField">
+          <label for="momo">MTN MoMo number to pay from</label>
+          <input id="momo" name="momo" type="tel" inputmode="tel" autocomplete="tel" placeholder="054 123 4567">
+          <span class="hint">You'll get a prompt on this phone to approve GH¢<span class="feeC">200</span> with your MoMo PIN.</span>
+        </div>
+
         <div class="total"><span>Total for one month</span><strong>GH¢<span id="feeB">200</span>.00</strong></div>
         <button id="pay" type="submit">
           <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18h3"/></svg>
           <span id="payLabel">Pay GH¢200 with Mobile Money</span>
         </button>
-        <div class="pay-note"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Secure payment by Paystack. You approve it on your phone.</div>
+        <div class="pay-note"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span id="payNote">Secure payment. You approve it on your phone.</span></div>
       </form>
+
+      <div id="wait" class="wait" aria-live="polite">
+        <div class="phone"><svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1A2347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18h3"/></svg></div>
+        <h2>Check your phone</h2>
+        <p id="waitText">We've sent a payment prompt to your MTN number.</p>
+        <ol>
+          <li>Open the MoMo prompt on your phone (it can take a few seconds).</li>
+          <li>Check it says GH¢<span class="feeC">200</span> for MathPad.</li>
+          <li>Enter your MoMo PIN to approve.</li>
+        </ol>
+        <p class="small" id="waitStatus">Waiting for your approval…</p>
+        <p class="small">No prompt? Dial <b>*170#</b> → My Wallet → My Approvals.</p>
+        <button type="button" class="linkbtn" id="waitBack">Change number or payment method</button>
+      </div>
 
       <div id="done" class="done">
         <div class="tick"><svg aria-hidden="true" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#1F9D63" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
@@ -196,14 +242,15 @@ const CONFIG = {
   feeCedis: 200,
   // Shown in the footer
   contact: '@preps233',
+
 };
 /* --------------------------------------------------------------- */
 
 const $ = (id) => document.getElementById(id);
 const form = $('form'), msg = $('msg'), payBtn = $('pay');
+document.querySelectorAll('.feeC').forEach((el) => (el.textContent = CONFIG.feeCedis));
 $('feeA').textContent = CONFIG.feeCedis;
 $('feeB').textContent = CONFIG.feeCedis;
-$('payLabel').textContent = `Pay GH¢${CONFIG.feeCedis} with Mobile Money`;
 $('contact').textContent = CONFIG.contact;
 
 // this month and the next two
@@ -225,16 +272,52 @@ function show(text, kind = 'err') {
 function clear() { msg.className = 'msg'; }
 function busy(on, label) {
   payBtn.disabled = on;
-  $('payLabel').textContent = on ? label : `Pay GH¢${CONFIG.feeCedis} with Mobile Money`;
+  $('payLabel').textContent = on ? label : payLabel();
 }
 
 // Apps Script takes text/plain posts (no CORS preflight)
-async function api(body) {
+async function apiRaw(body) {
   const r = await fetch(CONFIG.apiUrl, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(body) });
-  const j = await r.json();
+  return r.json();
+}
+async function api(body) {
+  const j = await apiRaw(body);
   if (!j.ok) throw new Error(j.error || 'Something went wrong. Please try again.');
   return j;
 }
+
+// ---- payment method: MTN MoMo (Request to Pay) or Paystack
+const method = () => form.querySelector('input[name="method"]:checked').value;
+let momoTouched = false;
+$('momo').addEventListener('input', () => (momoTouched = true));
+$('phone').addEventListener('input', () => { if (!momoTouched) $('momo').value = $('phone').value; });
+function methodChanged() {
+  const mtn = method() === 'mtn';
+  $('momoField').style.display = mtn ? '' : 'none';
+  $('payLabel').textContent = payLabel();
+  $('payNote').textContent = mtn ? 'Paid straight to MathPad through MTN MoMo. You approve it with your PIN.' : 'Secure payment by Paystack. You approve it on your phone.';
+}
+form.querySelectorAll('input[name="method"]').forEach((r) => r.addEventListener('change', methodChanged));
+function payLabel() {
+  return method() === 'mtn' ? `Pay GH¢${CONFIG.feeCedis} with MTN MoMo` : `Pay GH¢${CONFIG.feeCedis} with Mobile Money or card`;
+}
+const MTN = /^0(24|25|53|54|55|59)\d{7}$/;
+let momoTest = false;
+methodChanged();
+// MTN MoMo appears once it is set up on the server. While it is only in the
+// sandbox (test money), it shows just for pages opened with ?momotest.
+(async function momoReady() {
+  try {
+    const c = await apiRaw({ action: 'config' });
+    const testing = new URLSearchParams(location.search).has('momotest');
+    if (!c.ok || !c.momo || (c.momoSandbox && !testing)) return;
+    momoTest = !!c.momoSandbox;
+    $('methodField').style.display = '';
+    form.querySelector('input[value="mtn"]').checked = true;
+    if (momoTest) $('momo').placeholder = 'sandbox test number, e.g. 46733123450';
+    methodChanged();
+  } catch (e) {}
+})();
 
 function normPhone(p) {
   const d = p.replace(/\D/g, '');
@@ -251,9 +334,14 @@ function valid() {
   }
   if (!/^0\d{9}$/.test(normPhone($('phone').value))) return 'Please enter a 10-digit Ghana phone number, e.g. 024 123 4567.';
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test($('email').value.trim())) return 'Please enter a valid email address.';
+  if (method() === 'mtn' && !MTN.test(normPhone($('momo').value)) && !momoTest) {
+    $('momo').focus();
+    return 'Please enter an MTN MoMo number (024, 025, 053, 054, 055 or 059), or choose “Other” to pay with another network or card.';
+  }
   return null;
 }
 
+let saved = null;
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   clear();
@@ -265,14 +353,22 @@ form.addEventListener('submit', async (e) => {
   const data = Object.fromEntries(new FormData(form).entries());
   data.phone = normPhone(data.phone);
   data.email = data.email.trim();
-  busy(true, 'Saving your details…');
-  let reg;
-  try {
-    reg = await api({ action: 'register', ...data });
-  } catch (err) {
-    busy(false);
-    return show(err.message);
+  delete data.method;
+  delete data.momo;
+  // the same details as last time: keep the registration (and its reference)
+  const key = JSON.stringify(data);
+  let reg = saved && saved.key === key ? saved.reg : null;
+  if (!reg) {
+    busy(true, 'Saving your details…');
+    try {
+      reg = await api({ action: 'register', ...data });
+      saved = { key, reg };
+    } catch (err) {
+      busy(false);
+      return show(err.message);
+    }
   }
+  if (method() === 'mtn') return payMomo(reg, normPhone($('momo').value) || $('momo').value);
   busy(true, 'Waiting for payment…');
   const paystack = new PaystackPop();
   paystack.newTransaction({
@@ -306,6 +402,60 @@ form.addEventListener('submit', async (e) => {
     },
   });
 });
+
+// ---- MTN MoMo Request to Pay: the server sends the prompt, then we ask it
+// every few seconds whether MTN says the payment went through.
+let polling = 0;
+async function payMomo(reg, number) {
+  busy(true, 'Sending the prompt to your phone…');
+  let r;
+  try {
+    r = await apiRaw({ action: 'momoPay', reference: reg.reference, momo: number });
+  } catch (err) {
+    busy(false);
+    return show('Could not reach the payment service. Check your internet and try again.');
+  }
+  if (!r.ok) { busy(false); return show(r.error || 'MTN MoMo could not send the prompt. Please try again.'); }
+  if (r.paid) return check(reg.reference, true);
+  form.style.display = 'none';
+  $('wait').classList.add('show');
+  $('waitText').textContent = `We've sent a payment prompt to ${number.replace(/^(\d{3})(\d{3})(\d+)$/, '$1 $2 $3')}.`;
+  $('waitStatus').textContent = 'Waiting for your approval…';
+  $('wait').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const run = ++polling;
+  const started = Date.now();
+  while (run === polling) {
+    await new Promise((res) => setTimeout(res, 5000));
+    if (run !== polling) return;
+    const res = await check(reg.reference);
+    if (res === 'done' || res === 'failed') return;
+    if (Date.now() - started > 5 * 60 * 1000) {
+      return backToForm(`We didn't get your approval yet. If you approved it, wait a minute — we'll email you once it's confirmed. Otherwise press Pay to send a new prompt. Reference: ${reg.reference}`, 'info');
+    }
+  }
+}
+async function check(reference, once) {
+  let v;
+  try {
+    v = await apiRaw({ action: 'momoStatus', reference });
+  } catch (err) {
+    $('waitStatus').textContent = 'Still waiting… (checking again)';
+    return 'pending';
+  }
+  if (v.ok) { polling++; $('wait').classList.remove('show'); done(v); return 'done'; }
+  if (v.pending) { $('waitStatus').textContent = 'Waiting for your approval…'; return 'pending'; }
+  backToForm(v.error || 'The payment did not go through. Please try again.');
+  return 'failed';
+}
+function backToForm(text, kind = 'err') {
+  polling++;
+  $('wait').classList.remove('show');
+  form.style.display = '';
+  busy(false);
+  show(text, kind);
+  msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+$('waitBack').addEventListener('click', () => backToForm('Change the number or payment method, then press Pay again. If you already approved the prompt, wait a moment before paying again.', 'info'));
 
 function done(v) {
   form.style.display = 'none';
